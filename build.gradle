@@ -1,0 +1,28 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+}
+group = 'me.aphisitnamracha'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+
+    implementation 'com.hierynomus:sshj:0.30.0'
+
+    implementation 'org.apache.commons:commons-vfs2:2.7.0'
+    implementation 'commons-logging:commons-logging:1.2'
+    implementation 'com.jcraft:jsch:0.1.55'
+    implementation 'org.hamcrest:hamcrest-core:2.2'
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+}
+compileKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+task runApp(type: JavaExec) {
+    main = 'com.guy.sfpt.KotlinSFPT'
+    classpath = sourceSets.main.runtimeClasspath
+}
